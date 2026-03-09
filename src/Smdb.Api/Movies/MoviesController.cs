@@ -23,8 +23,11 @@ public class MoviesController
 	{
 		int page = int.TryParse(req.QueryString["page"], out int p) ? p : 1;
 		int size = int.TryParse(req.QueryString["size"], out int s) ? s : 9;
+
 		var result = await movieService.ReadMovies(page, size);
+
 		await JsonUtils.SendPagedResultResponse(req, res, props, result, page, size);
+
 		await next();
 	}
 

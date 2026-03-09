@@ -10,8 +10,7 @@ public class MoviesRouter : HttpRouter
 		MapGet("/", moviesController.ReadMovies);
 		MapPost("/", HttpUtils.ReadRequestBodyAsText, moviesController.CreateMovie);
 		MapGet("/:id", moviesController.ReadMovie);
-		MapPut("/:id", HttpUtils.ReadRequestBodyAsText,
-			moviesController.UpdateMovie);
+		MapPut("/:id", HttpUtils.ReadRequestBodyAsText,	moviesController.UpdateMovie);
 		MapDelete("/:id", moviesController.DeleteMovie);
 	}
 }

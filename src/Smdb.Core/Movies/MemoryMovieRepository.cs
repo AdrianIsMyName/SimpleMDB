@@ -40,7 +40,7 @@ public class MemoryMovieRepository : IMovieRepository
  
   public async Task<Movie?> UpdateMovie(int id, Movie newData) 
   { 
-    Movie? result = db.Movies.FirstOrDefault(m =>git commit -m "Add MemoryMovieRepository"  m.Id == id); 
+    Movie? result = db.Movies.FirstOrDefault(m => m.Id == id); 
  
     if(result != null) 
     { 
@@ -60,4 +60,4 @@ public class MemoryMovieRepository : IMovieRepository
  
     return await Task.FromResult(result); 
   } 
-} 
+}

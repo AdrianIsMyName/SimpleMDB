@@ -18,8 +18,7 @@ public class MoviesController
 
 	// curl -X GET "http://localhost:8080/api/v1/movies?page=1&size=10" 
 
-	public async Task ReadMovies(HttpListenerRequest req, HttpListenerResponse res,
-		Hashtable props, Func<Task> next)
+	public async Task ReadMovies(HttpListenerRequest req, HttpListenerResponse res,	Hashtable props, Func<Task> next)
 	{
 		int page = int.TryParse(req.QueryString["page"], out int p) ? p : 1;
 		int size = int.TryParse(req.QueryString["size"], out int s) ? s : 9;
@@ -36,8 +35,7 @@ public class MoviesController
 	public async Task CreateMovie(HttpListenerRequest req, HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{
 		var text = (string)props["req.text"]!;
-		var movie = JsonSerializer.Deserialize<Movie>(text,
-		JsonSerializerOptions.Web);
+		var movie = JsonSerializer.Deserialize<Movie>(text, JsonSerializerOptions.Web);
 		var result = await movieService.CreateMovie(movie!);
 		await JsonUtils.SendResultResponse(req, res, props, result);
 		await next();
@@ -46,8 +44,7 @@ public class MoviesController
 
 	// curl -X GET "http://localhost:8080/api/v1/movies/1" 
 
-	public async Task ReadMovie(HttpListenerRequest req, HttpListenerResponse res,
-		Hashtable props, Func<Task> next)
+	public async Task ReadMovie(HttpListenerRequest req, HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{
 		var uParams = (NameValueCollection)props["req.params"]!;
 		int id = int.TryParse(uParams["id"]!, out int i) ? i : -1;

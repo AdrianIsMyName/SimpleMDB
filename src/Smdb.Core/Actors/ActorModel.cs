@@ -6,6 +6,7 @@ public class Actor
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Bio { get; set; }
+    public double Rating { get; set; }
 
     public Actor(int id, string firstName, string lastName, double rating, string bio)
     {

@@ -1,20 +1,26 @@
 namespace Smdb.Core.Db;
 
 using Smdb.Core.Movies;
+using Smdb.Core.Actors;
 
 public class MemoryDatabase
 {
 	public List<Movie> Movies { get; }
+	public List<Actor> Actors { get; }
 
 	private int nextMovieId;
+	private int nextActorId;
 
 	public MemoryDatabase()
 	{
 		Movies = [];
+		Actors = [];
 
 		SeedMovies();
+		SeedActors();
 
 		nextMovieId = Movies.Count;
+		nextActorId = Actors.Count;
 	}
 
 	private void SeedMovies()
@@ -74,8 +80,61 @@ public class MemoryDatabase
 		});
 	}
 
+
+	private void SeedActors()
+	{
+		Actors.AddRange(new Actor[]
+		{
+			// The Godfather
+			new Actor(1, "Marlon", "Brando", 9.5, "Legendary actor known for The Godfather."),
+			new Actor(2, "Al", "Pacino", 9.4, "Starred in The Godfather."),
+
+			// The Godfather Part II
+			new Actor(3, "Robert", "De Niro", 9.3, "Played young Vito Corleone."),
+			new Actor(4, "Al", "Pacino", 9.4, "Continued role as Michael Corleone."),
+
+			// The Dark Knight
+			new Actor(5, "Christian", "Bale", 9.2, "Played Batman."),
+			new Actor(6, "Heath", "Ledger", 9.5, "Played the Joker."),
+
+			// The Shawshank Redemption
+			new Actor(7, "Tim", "Robbins", 9.0, "Played Andy Dufresne."),
+			new Actor(8, "Morgan", "Freeman", 9.1, "Played Red."),
+
+			// Pulp Fiction
+			new Actor(9, "John", "Travolta", 8.9, "Played Vincent Vega."),
+			new Actor(10, "Samuel L.", "Jackson", 9.0, "Played Jules Winnfield."),
+
+			// Schindler's List
+			new Actor(11, "Liam", "Neeson", 9.1, "Played Oskar Schindler."),
+			new Actor(12, "Ralph", "Fiennes", 8.9, "Played Amon Goeth."),
+
+			// The Lord of the Rings: The Return of the King
+			new Actor(13, "Elijah", "Wood", 9.0, "Played Frodo Baggins."),
+			new Actor(14, "Ian", "McKellen", 9.2, "Played Gandalf."),
+
+			// Fight Club
+			new Actor(15, "Brad", "Pitt", 9.0, "Played Tyler Durden."),
+			new Actor(16, "Edward", "Norton", 9.1, "Played the Narrator."),
+
+			// Forrest Gump
+			new Actor(17, "Tom", "Hanks", 9.5, "Played Forrest Gump."),
+			new Actor(18, "Robin", "Wright", 9.0, "Played Jenny Curran."),
+
+			// Inception
+			new Actor(19, "Leonardo", "DiCaprio", 9.4, "Played Dom Cobb."),
+			new Actor(20, "Joseph", "Gordon-Levitt", 9.0, "Played Arthur.")
+		});
+	}
+
+
 	public int NextMovieId()
 	{
 		return ++nextMovieId;
+	}
+
+	public int NextActorId()
+	{
+		return ++nextActorId;
 	}
 }

@@ -2,25 +2,33 @@ namespace Smdb.Core.Db;
 
 using Smdb.Core.Movies;
 using Smdb.Core.Actors;
+using Smdb.Core.Users;
+
+using System.Reflection.Metadata;
 
 public class MemoryDatabase
 {
 	public List<Movie> Movies { get; }
 	public List<Actor> Actors { get; }
+	public List<User> Users { get; }
 
-	private int nextMovieId;
 	private int nextActorId;
-
+	private int nextUserId;
+	private int nextMovieId;
+	
 	public MemoryDatabase()
 	{
 		Movies = [];
 		Actors = [];
+		Users = [];
 
 		SeedMovies();
 		SeedActors();
+		SeedUsers();
 
 		nextMovieId = Movies.Count;
 		nextActorId = Actors.Count;
+		nextUserId = Users.Count;
 	}
 
 	private void SeedMovies()
@@ -124,6 +132,15 @@ public class MemoryDatabase
 			// Inception
 			new Actor(19, "Leonardo", "DiCaprio", 9.4, "Played Dom Cobb."),
 			new Actor(20, "Joseph", "Gordon-Levitt", 9.0, "Played Arthur.")
+		});
+	}
+
+	private void SeedUsers()
+	{
+		Users.AddRange(new User[]
+		{
+			new User(1, "John Doe", "john.doe@example.com", "password123"),
+			new User(2, "Jane Smith", "jane.smith@example.com", "password456")
 		});
 	}
 

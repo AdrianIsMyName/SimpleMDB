@@ -12,9 +12,10 @@ public class MemoryDatabase
 	public List<Actor> Actors { get; }
 	public List<User> Users { get; }
 
+	private int nextMovieId;
 	private int nextActorId;
 	private int nextUserId;
-	private int nextMovieId;
+	
 	
 	public MemoryDatabase()
 	{
@@ -140,7 +141,15 @@ public class MemoryDatabase
 		Users.AddRange(new User[]
 		{
 			new User(1, "John Doe", "john.doe@example.com", "password123"),
-			new User(2, "Jane Smith", "jane.smith@example.com", "password456")
+			new User(2, "Jane Smith", "jane.smith@example.com", "password456"),
+			new User(3, "Alice Johnson", "alice.johnson@example.com", "password789"),
+			new User(4, "Bob Brown", "bob.brown@example.com", "password012"),
+			new User(5, "Charlie Davis", "charlie.davis@example.com", "password345"),
+			new User(6, "Diana Evans", "diana.evans@example.com", "password678"),
+			new User(7, "Ethan Wilson", "ethan.wilson@example.com", "password901"),
+			new User(8, "Fiona Clark", "fiona.clark@example.com", "password012"),
+			new User(9, "George Miller", "george.miller@example.com", "password345"),
+			new User(10, "Hannah Lee", "hannah.lee@example.com", "password678")
 		});
 	}
 
@@ -153,5 +162,10 @@ public class MemoryDatabase
 	public int NextActorId()
 	{
 		return ++nextActorId;
+	}
+
+	public int NextUserId()
+	{
+		return ++nextUserId;
 	}
 }

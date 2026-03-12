@@ -31,7 +31,7 @@ public class UsersController
 	}
 
 
-	// curl -X POST "http://localhost:8080/api/v1/users" -H "Content-Type:application/json" -d "{ \"id\": -1, \"name\": \"John Doe\", \"email\": \"john.doe@example.com\", \"password\": \"password123\" }" 
+	// curl -X POST "http://localhost:8080/api/v1/users" -H "Content-Type:application/json" -d "{ \"id\": -1, \"name\": \"TEST NAME\", \"email\": \"TEST.doe@example.com\", \"password\": \"123456\" }" 
 	public async Task CreateUser(HttpListenerRequest req, HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{
 		var text = (string)props["req.text"]!;
@@ -58,10 +58,10 @@ public class UsersController
 	}
 
 
-	// curl -X PUT "http://localhost:8080/api/v1/users/1" -H "Content-Type:application/json" -d "{ \"name\": \"Jane Doe\", \"email\": \"jane.doe@example.com\", \"password\": \"newpassword123\" }"
+	// curl -X PUT "http://localhost:8080/api/v1/users/1" -H "Content-Type:application/json" -d "{ \"id\": 1, \"name\": \"Jane Doe\", \"email\": \"jane.doe@example.com\", \"password\": \"newpassword123\" }"
 	public async Task UpdateUser(HttpListenerRequest req, HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{
-		var uParams = (NameValueCollection)props["req,params"]!;
+		var uParams = (NameValueCollection)props["req.params"]!;
 		int id = int.TryParse(uParams["id"]!, out int i) ? i : -1;
 		var text = (string)props["req.text"]!;
 		var user = JsonSerializer.Deserialize<User>(text, JsonSerializerOptions.Web);
@@ -74,8 +74,7 @@ public class UsersController
 
 
 	// curl -X DELETE http://localhost:8080/api/v1/users/1 
-	public async Task DeleteUser(HttpListenerRequest req,
-	HttpListenerResponse res, Hashtable props, Func<Task> next)
+	public async Task DeleteUser(HttpListenerRequest req,	HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{
 		var uParams = (NameValueCollection)props["req.params"]!;
 		int id = int.TryParse(uParams["id"]!, out int i) ? i : -1;

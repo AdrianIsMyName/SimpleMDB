@@ -58,7 +58,7 @@ public class ActorsController
 	}
 
 
-	// curl -X PUT "http://localhost:8080/api/v1/actors/1" -H "Content-Type: application/json" -d "{ \"firstName\": \"Tom\", \"lastName\": \"Hanks\", \"rating\": 10, \"bio\": \"Updated bio.\" }"
+	// curl -X PUT "http://localhost:8080/api/v1/actors/1" -H "Content-Type: application/json" -d "{ \"id\": 1, \"firstName\": \"Tom\", \"lastName\": \"Hanks\", \"rating\": 10, \"bio\": \"Updated bio.\" }"
 	public async Task UpdateActor(HttpListenerRequest req, HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{
 		var uParams = (NameValueCollection)props["req.params"]!;

@@ -5,7 +5,7 @@ using Smdb.Core.Db;
  
 public class MemoryMovieRepository : IMovieRepository 
 { 
-  private MemoryDatabase db; 
+  private MemoryDatabase db;
  
   public MemoryMovieRepository(MemoryDatabase db) 
   { 

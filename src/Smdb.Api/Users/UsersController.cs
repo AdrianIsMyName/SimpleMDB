@@ -7,7 +7,7 @@ using System.Text.Json;
 using Shared.Http;
 using Smdb.Core.Users;
 
-public class UsersController
+public class UsersController //CRUD-L TESTED AND WORKING
 {
 	private IUserService userService;
 
@@ -74,7 +74,7 @@ public class UsersController
 
 
 	// curl -X DELETE http://localhost:8080/api/v1/users/1 
-	public async Task DeleteUser(HttpListenerRequest req,	HttpListenerResponse res, Hashtable props, Func<Task> next)
+	public async Task DeleteUser(HttpListenerRequest req, HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{
 		var uParams = (NameValueCollection)props["req.params"]!;
 		int id = int.TryParse(uParams["id"]!, out int i) ? i : -1;

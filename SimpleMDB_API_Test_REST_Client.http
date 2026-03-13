@@ -1,0 +1,120 @@
+
+### Base URL
+@baseUrl = 
+
+#################################################
+# MOVIES
+#################################################
+
+### List Movies (L)
+
+GET http://localhost:8080/api/v1/movies?page=1&size=10
+Accept: application/json
+
+### Create Movie (C)
+POST http://localhost:8080/api/v1/movies
+Content-Type: application/json
+
+{
+  "id": -1,
+  "title": "Example Movie",
+  "year": 2024,
+  "description": "This is an example movie."
+}
+
+### Read Movie (R)
+GET http://localhost:8080/api/v1/movies/1
+Accept: application/json
+
+### Update Movie (U)
+PUT http://localhost:8080/api/v1/movies/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Updated Movie",
+  "year": 2025,
+  "description": "This is an example movie."
+}
+
+### Delete Movie (D)
+DELETE http://localhost:8080/api/v1/movies/1
+
+
+#################################################
+# ACTORS
+#################################################
+
+### List Actors (L)
+GET http://localhost:8080/api/v1/actors?page=1&size=10
+Accept: application/json
+
+### Create Actor (C)
+POST http://localhost:8080/api/v1/actors
+Content-Type: application/json
+
+{
+  "id": -1,
+  "firstname": "Example Actor",
+  "lastname": "Example LastName",
+  "bio": "This is an example actor.",
+  "rating": 4.5
+  
+}
+
+### Read Actor (R)
+GET http://localhost:8080/api/v1/actors/1
+Accept: application/json
+
+### Update Actor (U)
+PUT http://localhost:8080/api/v1/actors/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "firstname": "Updated Actor",
+  "lastname": "Updated LastName",
+  "bio": "This is an Updated actor.",
+  "rating": 5.0
+}
+
+### Delete Actor (D)
+DELETE http://localhost:8080/api/v1/actors/1
+
+
+#################################################
+# USERS
+#################################################
+
+### List Users (L)
+GET http://localhost:8080/api/v1/users?page=1&size=10
+Accept: application/json
+
+### Create User (C)
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "id": -1,
+  "name": "testuser",
+  "email": "test@example.com",
+  "password": "examplepassword123"
+}
+
+### Read User (R)
+GET http://localhost:8080/api/v1/users/1
+Accept: application/json
+
+### Update User (U)
+PUT http://localhost:8080/api/v1/users/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "updateduser",
+  "email": "updated@example.com",
+  "password": "updatedpassword123"
+}
+
+### Delete User (D)
+DELETE http://localhost:8080/api/v1/users/1

@@ -7,7 +7,7 @@ using System.Text.Json;
 using Shared.Http;
 using Smdb.Core.Actors;
 
-public class ActorsController
+public class ActorsController //CRUD-L TESTED AND WORKING
 {
 	private IActorsService actorService;
 

@@ -12,7 +12,7 @@ public class MemoryMovieRepository : IMovieRepository
     this.db = db; 
   } 
  
-  public async Task<PagedResult<Movie>?> ReadMovies(int page, int size) 
+  public async Task<PagedResult<Movie>?> ReadMovies(int page, int size)  
   { 
     int totalCount = db.Movies.Count; 
     int start = Math.Clamp((page - 1) * size, 0, totalCount); 

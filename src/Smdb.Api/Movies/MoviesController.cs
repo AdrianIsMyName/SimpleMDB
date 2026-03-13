@@ -7,7 +7,7 @@ using System.Text.Json;
 using Shared.Http;
 using Smdb.Core.Movies;
 
-public class MoviesController
+public class MoviesController //CRUD-L TESTED AND WORKING
 {
 	private IMovieService movieService;
 
@@ -57,7 +57,7 @@ public class MoviesController
 		await next();
 	}
 
-	
+
 	// curl -X PUT "http://localhost:8080/api/v1/movies/1" -H "Content-Type:application/json" -d "{ \"id\": 1, \"title\": \"Joker 2\", \"year\": 2020, \"description\": \"A man that is a joke.\" }"
 	public async Task UpdateMovie(HttpListenerRequest req, HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{

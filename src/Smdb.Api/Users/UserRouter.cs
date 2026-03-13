@@ -10,7 +10,7 @@ public class UsersRouter : HttpRouter
 		MapGet("/", usersController.ReadUsers);
 		MapPost("/", HttpUtils.ReadRequestBodyAsText, usersController.CreateUser);
 		MapGet("/:id", usersController.ReadUser);
-		MapPut("/:id", HttpUtils.ReadRequestBodyAsText,	usersController.UpdateUser);
+		MapPut("/:id", HttpUtils.ReadRequestBodyAsText, usersController.UpdateUser);
 		MapDelete("/:id", usersController.DeleteUser);
 	}
 }

@@ -43,7 +43,7 @@ public class MoviesController //CRUD-L TESTED AND WORKING
 	}
 
 
-	// curl -X GET "http://localhost:8080/api/v1/movies/1" 
+	// curl -X GET "http://localhost:8080/api/v1/movies/999" 
 
 	public async Task ReadMovie(HttpListenerRequest req, HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{
@@ -73,7 +73,7 @@ public class MoviesController //CRUD-L TESTED AND WORKING
 	}
 
 
-	// curl -X DELETE http://localhost:8080/api/v1/movies/1 
+	// curl -X DELETE http://localhost:8080/api/v1/movies/1000
 	public async Task DeleteMovie(HttpListenerRequest req,
 	HttpListenerResponse res, Hashtable props, Func<Task> next)
 	{

@@ -23,11 +23,11 @@ Content-Type: application/json
 }
 
 ### Read Movie (R)
-GET http://localhost:8080/api/v1/movies/1
+GET http://localhost:8080/api/v1/movies/2
 Accept: application/json
 
 ### Update Movie (U)
-PUT http://localhost:8080/api/v1/movies/1
+PUT http://localhost:8080/api/v1/movies/2
 Content-Type: application/json
 
 {
@@ -38,7 +38,7 @@ Content-Type: application/json
 }
 
 ### Delete Movie (D)
-DELETE http://localhost:8080/api/v1/movies/1
+DELETE http://localhost:8080/api/v1/movies/2
 
 
 #################################################
@@ -79,7 +79,7 @@ Content-Type: application/json
 }
 
 ### Delete Actor (D)
-DELETE http://localhost:8080/api/v1/actors/1
+DELETE http://localhost:8080/api/v1/actors/100000000
 
 
 #################################################

@@ -7,5 +7,7 @@
 			"path": "../SharedLibrary"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "SimpleMDB"
+	}
 }

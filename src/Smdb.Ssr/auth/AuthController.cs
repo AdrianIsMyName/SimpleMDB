@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Net;
+using Shared.Http;
 
 namespace SimpleMDB;
 
@@ -12,14 +13,7 @@ public class AuthController
 
 	public async Task LandingPageGet(HttpListenerRequest req, HttpListenerResponse res, Hashtable options, Func<Task> next)
 	{
-		string html = HtmlTemplates.Base("SimpleMDB", "Landing Page", "Hello World!");
-		byte[] content = System.Text.Encoding.UTF8.GetBytes(html);
-
-		res.StatusCode = (int) HttpStatusCode.OK;
-		res.ContentEncoding = System.Text.Encoding.UTF8;
-		res.ContentType = "text/html";
-		res.ContentLength64 = content.LongLength;
-		await res.OutputStream.WriteAsync(content);
-		res.Close();
+    string html = HtmlTemplates.Base("SimpleMDB", "Landing Page", "Hello World!");
+    await HttpUtils.SendOkResponse(req, res, options, html, "text/html");
 	}
 }

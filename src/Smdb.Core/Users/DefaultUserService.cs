@@ -23,13 +23,13 @@ public class DefaultUserService : IUserService
 		if (size < 1)
 		{
 			return new Result<PagedResult<User>>(
-				new Exception("Page size must be >= 1."),	(int)HttpStatusCode.BadRequest);
+				new Exception("Page size must be >= 1."), (int)HttpStatusCode.BadRequest);
 		}
 
 		var pagedResult = await userRepository.ReadUsers(page, size);
 		var result = pagedResult == null
 			? new Result<PagedResult<User>>(new Exception(
-					$"Could not read users from page {page} and size {size}."),	(int)HttpStatusCode.NotFound)
+					$"Could not read users from page {page} and size {size}."), (int)HttpStatusCode.NotFound)
 			: new Result<PagedResult<User>>(pagedResult, (int)HttpStatusCode.OK);
 
 		return result;
@@ -44,7 +44,7 @@ public class DefaultUserService : IUserService
 		var user = await userRepository.CreateUser(newUser);
 		var result = user == null
 			? new Result<User>(
-					new Exception($"Could not create user {newUser}."),	(int)HttpStatusCode.NotFound)
+					new Exception($"Could not create user {newUser}."), (int)HttpStatusCode.NotFound)
 			: new Result<User>(user, (int)HttpStatusCode.Created);
 
 		return result;
@@ -55,7 +55,7 @@ public class DefaultUserService : IUserService
 		var user = await userRepository.ReadUser(id);
 		var result = user == null
 			? new Result<User>(
-					new Exception($"Could not read user with id {id}."),	(int)HttpStatusCode.NotFound)
+					new Exception($"Could not read user with id {id}."), (int)HttpStatusCode.NotFound)
 			: new Result<User>(user, (int)HttpStatusCode.OK);
 
 		return result;
@@ -70,7 +70,7 @@ public class DefaultUserService : IUserService
 		var user = await userRepository.UpdateUser(id, newData);
 		var result = user == null
 			? new Result<User>(
-					new Exception($"Could not update user {newData} with id {id}."),	(int)HttpStatusCode.NotFound)
+					new Exception($"Could not update user {newData} with id {id}."), (int)HttpStatusCode.NotFound)
 			: new Result<User>(user, (int)HttpStatusCode.OK);
 
 		return result;
@@ -81,7 +81,7 @@ public class DefaultUserService : IUserService
 		var user = await userRepository.DeleteUser(id);
 		var result = user == null
 			? new Result<User>(
-					new Exception($"Could not delete user with id {id}."),	(int)HttpStatusCode.NotFound)
+					new Exception($"Could not delete user with id {id}."), (int)HttpStatusCode.NotFound)
 			: new Result<User>(user, (int)HttpStatusCode.OK);
 
 		return result;

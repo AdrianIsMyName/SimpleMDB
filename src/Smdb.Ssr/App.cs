@@ -24,10 +24,10 @@ public class App
 
 		var db = new MemoryDatabase();
 
-		var userRepo = new MemoryUserRepository(db);
-		var userServ = new DefaultUserService(userRepo);
-		var userCtrl = new UsersController(userServ);
-		var authController = new AuthController(userServ);
+		var userRepository = new MemoryUserRepository(db);
+		var userService = new DefaultUserService(userRepository);
+		var userController = new UsersController(userService);
+		var authController = new AuthController(userService);
 
 		// Add middleware
 		router.Use(HttpUtils.StructuredLogging);
@@ -42,7 +42,7 @@ public class App
 
 		// Define routes
 		router.MapGet("/", authController.LandingPageGet);
-		router.MapGet("/users", userCtrl.ReadUsers);
+		router.MapGet("/users", userController.ReadUsers);
 	}
 
 	public async Task Start()

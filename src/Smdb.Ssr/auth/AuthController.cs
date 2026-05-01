@@ -7,7 +7,7 @@ namespace SimpleMDB;
 
 public class AuthController
 {
-	private readonly IUserService userService;
+	private IUserService userService;
 
 	public AuthController(IUserService userService)
 	{
@@ -16,7 +16,18 @@ public class AuthController
 
 	public async Task LandingPageGet(HttpListenerRequest req, HttpListenerResponse res, Hashtable options, Func<Task> next)
 	{
-		string html = HtmlTemplates.Base("SimpleMDB", "Landing Page", "Hello World!");
-		await HttpUtils.SendOkResponse(req, res, options, html, "text/html");
+		string html = $@"
+		<nav>
+			<ul>
+				<li><a href=""/register"">Register</a></li>
+				<li><a href=""/login"">Login</a></li>
+				<li><a href=""/logout"">Logout</a></li>
+				<li><a href=""/users"">Users</a></li>
+				<li><a href=""/actors"">Actors</a></li>
+				<li><a href=""/movies"">Movies</a></li>
+			</ul> 
+		";
+		string content = HtmlTemplates.Base("SimpleMDB", "Landing Page", html);
+		await HttpUtils.SendOkResponse(req, res, options, content);
 	}
 }

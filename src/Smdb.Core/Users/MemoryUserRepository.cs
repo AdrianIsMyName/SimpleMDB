@@ -47,6 +47,8 @@ public class MemoryUserRepository : IUserRepository
       result.Name = newData.Name;
       result.Email = newData.Email;
       result.Password = newData.Password;
+      result.Salt = newData.Salt;
+      result.Role = newData.Role;
     }
 
     return await Task.FromResult(result);

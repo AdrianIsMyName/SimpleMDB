@@ -3,8 +3,8 @@ namespace Smdb.Core.Db;
 using Smdb.Core.Movies;
 using Smdb.Core.Actors;
 using Smdb.Core.Users;
-
 using System.Reflection.Metadata;
+using SimpleMDB;
 
 public class MemoryDatabase
 {
@@ -136,8 +136,19 @@ public class MemoryDatabase
 		});
 	}
 
+	Random r = new Random();
 	private void SeedUsers()
 	{
+		/*  DOESNT WORK FOR NOW.
+		foreach (var user in Users)
+		{
+			var pass = Path.GetRandomFileName();
+			var salt = Path.GetRandomFileName();
+			var role = Roles.ROLES[r.Next(Roles.ROLES.Length)];
+			User user = new User(idCount++, username, pass, salt, role);
+			users.Add(user);
+		}*/
+
 		Users.AddRange(new User[]
 		{
 			new User(1, "John Doe", "john.doe@example.com", "password123", "randomsalt", "admin"),
